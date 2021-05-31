@@ -1,0 +1,94 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p4_collatz       # job name
+#SBATCH -o p4_collatz.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:03:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE=""
+
+./collatz_OpenMP 169941673 1
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(static, 1)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(static, 100)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(static, 10000)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(dynamic, 1)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(dynamic, 100)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(dynamic, 10000)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(guided, 1)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(guided, 100)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+icc -xhost -O3 -fopenmp collatz_OpenMP.cpp -o collatz_OpenMP -DSCHEDULE="schedule(guided, 10000)"
+
+./collatz_OpenMP 169941673 12
+./collatz_OpenMP 169941673 24
+./collatz_OpenMP 169941673 36
+./collatz_OpenMP 169941673 48
+./collatz_OpenMP 169941673 60
+
+date

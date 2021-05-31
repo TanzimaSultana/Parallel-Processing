@@ -1,0 +1,31 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p3_collatz       # job name
+#SBATCH -o p3_collatz.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:02:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./collatz_pthread 169941673 1
+./collatz_pthread 169941673 4
+./collatz_pthread 169941673 8
+./collatz_pthread 169941673 12
+./collatz_pthread 169941673 16
+./collatz_pthread 169941673 20
+./collatz_pthread 169941673 24
+./collatz_pthread 169941673 28
+./collatz_pthread 169941673 32
+./collatz_pthread 169941673 36
+./collatz_pthread 169941673 40
+./collatz_pthread 169941673 44
+./collatz_pthread 169941673 48
+./collatz_pthread 169941673 52
+./collatz_pthread 169941673 56
+./collatz_pthread 169941673 60
+./collatz_pthread 169941673 64
+
+date
+

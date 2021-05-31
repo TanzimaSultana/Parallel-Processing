@@ -1,0 +1,41 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p4_mis           # job name
+#SBATCH -o p4_mis.%j        # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:02:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 1
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 12
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 24
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 36
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 48
+./mis_OpenMP /home1/00976/burtsche/Graphs/coPapersDBLP.egr 60
+
+
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 1
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 12
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 24
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 36
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 48
+./mis_OpenMP /home1/00976/burtsche/Graphs/uk-2002.egr 60
+
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 1
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 12
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 24
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 36
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 48
+./mis_OpenMP /home1/00976/burtsche/Graphs/USA-road-d.USA.egr 60
+
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 1
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 12
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 24
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 36
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 48
+./mis_OpenMP /home1/00976/burtsche/Graphs/kron_g500-logn21.egr 60
+
+date

@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p1_fractal       # job name
+#SBATCH -o p1_fractal.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:02:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./fractal 512 64
+./fractal 512 128
+./fractal 1024 64
+./fractal 1024 128
+
+date
+

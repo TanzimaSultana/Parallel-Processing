@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p6_collatz       # job name
+#SBATCH -o p6_collatz.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p gpu              # queue name
+#SBATCH -t 00:04:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+export OMP_NUM_THREADS=20
+
+./collatz_hyb_noMPI 1699416735 0
+./collatz_hyb_noMPI 1699416735 2
+
+date
+

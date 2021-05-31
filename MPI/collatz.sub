@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p1_collatz       # job name
+#SBATCH -o p1_collatz.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:01:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./collatz 1699417
+./collatz 16994167
+./collatz 169941673
+
+date
+

@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p4_fractal       # job name
+#SBATCH -o p4_fractal.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:05:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./fractal1_OpenMP 1024 128 48
+
+./fractal1_OpenMP 1024 128 1
+./fractal1_OpenMP 1024 128 12
+./fractal1_OpenMP 1024 128 24
+./fractal1_OpenMP 1024 128 36
+./fractal1_OpenMP 1024 128 48
+./fractal1_OpenMP 1024 128 60
+
+./fractal2_OpenMP 1024 128 1
+./fractal2_OpenMP 1024 128 12
+./fractal2_OpenMP 1024 128 24
+./fractal2_OpenMP 1024 128 36
+./fractal2_OpenMP 1024 128 48
+./fractal2_OpenMP 1024 128 60
+
+./fractal3_OpenMP 1024 128 1
+./fractal3_OpenMP 1024 128 12
+./fractal3_OpenMP 1024 128 24
+./fractal3_OpenMP 1024 128 36
+./fractal3_OpenMP 1024 128 48
+./fractal3_OpenMP 1024 128 60
+
+date

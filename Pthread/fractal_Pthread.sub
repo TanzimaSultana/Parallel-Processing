@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p3_fractal       # job name
+#SBATCH -o p3_fractal.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p normal           # queue name
+#SBATCH -t 00:05:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./fractal_pthread 512 64 1
+./fractal_pthread 512 64 8
+./fractal_pthread 512 64 16
+./fractal_pthread 512 64 24
+./fractal_pthread 512 64 32
+./fractal_pthread 512 64 40
+./fractal_pthread 512 64 48
+./fractal_pthread 512 64 56
+./fractal_pthread 512 64 64
+
+./fractal_pthread 1024 128 1
+./fractal_pthread 1024 128 8
+./fractal_pthread 1024 128 16
+./fractal_pthread 1024 128 24
+./fractal_pthread 1024 128 32
+./fractal_pthread 1024 128 40
+./fractal_pthread 1024 128 48
+./fractal_pthread 1024 128 56
+./fractal_pthread 1024 128 64
+
+date

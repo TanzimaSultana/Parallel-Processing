@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -A CS4380_5351_7332 # account name
+#SBATCH -J p5_mis           # job name
+#SBATCH -o p5_mis.%j        # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p gpu              # queue name
+#SBATCH -t 00:01:00         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./mis_cuda /home1/00976/burtsche/Graphs/coPapersDBLP.egr
+./mis_cuda /home1/00976/burtsche/Graphs/uk-2002.egr
+./mis_cuda /home1/00976/burtsche/Graphs/USA-road-d.USA.egr
+./mis_cuda /home1/00976/burtsche/Graphs/kron_g500-logn21.egr
+
+date
